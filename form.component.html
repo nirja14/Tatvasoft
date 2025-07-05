@@ -1,0 +1,36 @@
+<div class="container">
+  <h2>Student Form</h2>
+  <form (ngSubmit)="onSubmit()" #studentForm="ngForm">
+
+    <label>Name:</label>
+    <input type="text" [(ngModel)]="student.name" name="name" required><br><br>
+
+    <label>Roll No:</label>
+    <input type="text" [(ngModel)]="student.rollNo" name="rollNo" required><br><br>
+
+    <label>Marks:</label>
+    <input type="number" [(ngModel)]="student.marks" name="marks" max="150" required><br><br>
+
+    <button type="submit" [disabled]="!studentForm.form.valid">Submit</button>
+  </form>
+
+  <h3>Submitted Students</h3>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Roll No</th>
+        <th>Marks</th>
+        <th>Grade</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let s of studentsList">
+        <td>{{ s.name }}</td>
+        <td>{{ s.rollNo }}</td>
+        <td>{{ s.marks }}</td>
+        <td>{{ s.grade }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
